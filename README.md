@@ -88,9 +88,9 @@ db.my_collection.find({
 
 ```
 
-##可选项
+## 可选项
 
-###日期
+### 日期
 
 ```
 select * from my_table where date(column,'YYY-MM-DD') >= '2019-12-12'
@@ -107,7 +107,7 @@ db.my_table.find({
 })
 ```
 
-###自然语言日期
+### 自然语言日期
 
 ```
 select * from my_table where date(column,'natural') >= '5000 days ago'
@@ -124,7 +124,7 @@ db.my_table.find({
 })
 ```
 
-###正则表达式
+### 正则表达式
 
 ```
 select * from my_table where regexMatch(column,'^[ae"gaf]+$')
@@ -139,7 +139,7 @@ db.my_table.find({
 })
 ```
 
-###Distinct
+### Distinct
 
 ```
 select distinct column1 from my_table where value IS NULL
@@ -154,7 +154,7 @@ db.my_table.distinct("column1" , {
 })
 ```
 
-###Like
+### Like
 
 ```
 select * from my_table where value LIKE 'start%'
@@ -169,7 +169,7 @@ db.my_table.find({
 })
 ```
 
-###In
+### In
 
 ```
 select column1 from my_table where value IN ("theValue1","theValue2","theValue3")
@@ -184,7 +184,7 @@ db.my_table.find({
 })
 ```
 
-###Not In
+### Not In
 
 ```
 select column1 from my_table where value NOT IN ("theValue1","theValue2","theValue3")
@@ -199,7 +199,7 @@ db.my_table.find({
 })
 ```
 
-###Is True
+### Is True
 
 ```
 select column1 from my_table where column = true
@@ -212,7 +212,7 @@ db.my_table.find({
 })
 ```
 
-###Is False
+### Is False
 
 ```
 select column1 from my_table where column = false
@@ -225,7 +225,7 @@ db.my_table.find({
 })
 ```
 
-###Not True
+### Not True
 
 ```
 select column1 from my_table where NOT column
@@ -239,7 +239,7 @@ db.my_table.find({
 ```
 
 
-###ObjectId Support
+### ObjectId Support
 
 ```
 select column1 from  where OBJECTID('_id') IN ('53102b43bf1044ed8b0ba36b', '54651022bffebc03098b4568')
@@ -261,7 +261,7 @@ db.my_table.find({
 })
 ```
 
-###Delete
+### Delete
 
 ```
 delete from my_table where value IN ("theValue1","theValue2","theValue3")
@@ -272,7 +272,7 @@ delete from my_table where value IN ("theValue1","theValue2","theValue3")
 3 (number or records deleted)
 ```
 
-###Group By (聚合函数)
+### Group By (聚合函数)
 
 ```
 select borough, cuisine, count(*) from my_collection WHERE borough LIKE 'Queens%' GROUP BY borough, cuisine ORDER BY count(*) DESC;
@@ -310,7 +310,7 @@ db.my_collection.aggregate([{
 }])
 ```
 
-###带子句的聚合函数
+### 带子句的聚合函数
 
 ```
 select Restaurant.cuisine, count(*) from Restaurants group by Restaurant.cuisine having count(*) > 3;
@@ -348,7 +348,7 @@ db.Restaurants.aggregate([
 ```
 
 
-###Joins
+### Joins
 
 ```
 select t1.column1, t2.column2 from my_table as t1 inner join my_table2 as t2 on t1.column = t2.column
@@ -492,7 +492,7 @@ db.my_table.aggregate([
 ```
 
 
-###别名
+### 别名
 
 ```
 select object.key1 as key1, object2.key3 as key3, object1.key4 as key4 from my_collection where object.key2 = 34 AND object2.key4 > 5;
@@ -523,7 +523,7 @@ db.Restaurants.aggregate([{
 }])
 ```
 
-###别名 Group By (Aggregation)
+### 别名 Group By (Aggregation)
 
 ```
 select borough as b, cuisine as c, count(*) as co from my_collection WHERE borough LIKE 'Queens%' GROUP BY borough, cuisine ORDER BY count(*) DESC;
@@ -561,7 +561,7 @@ db.my_collection.aggregate([{
 }])
 ```
 
-###Offset
+### Offset
 
 ```
 select * from table limit 3 offset 4
@@ -574,7 +574,7 @@ select a, count(*) from table group by a limit 3 offset 4
 is equivalent to the $skip function in mongodb json query language
 ```
 
-###直接集成Mongo
+### 直接集成Mongo
 
 可以在一个真正的mongodb数据库上执行查询并查看结果。
 
